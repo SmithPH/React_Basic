@@ -1,0 +1,34 @@
+{
+  "posts": [
+    {
+      "title": "Philosophy",
+      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic nam esse, odio labore maxime similique? Quis error laboriosam dolorum ipsam inventore, ea debitis dicta cupiditate non accusantium reiciendis aut saepe!",
+      "created_at": "10/12/2023",
+      "id": "1"
+    },
+    {
+      "title": "Psychology",
+      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic nam esse, odio labore maxime similique? Quis error laboriosam dolorum ipsam inventore, ea debitis dicta cupiditate non accusantium reiciendis aut saepe!",
+      "created_at": "10/12/2023",
+      "id": "2"
+    },
+    {
+      "title": "Games",
+      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic nam esse, odio labore maxime similique? Quis error laboriosam dolorum ipsam inventore, ea debitis dicta cupiditate non accusantium reiciendis aut saepe!",
+      "created_at": "10/12/2023",
+      "id": "3"
+    },
+    {
+      "id": "ea8e",
+      "title": "Books",
+      "body": "re",
+      "created_at": "7/8/2024"
+    },
+    {
+      "id": "Life",
+      "title": "eeee",
+      "body": "234",
+      "created_at": "7/8/2024"
+    }
+  ]
+}
