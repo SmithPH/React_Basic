@@ -1,27 +1,38 @@
-const PostItem = ({ posts, handleDelete }) => {
+import { Link } from "react-router-dom";
+
+const PostItem = ({ post, handleDelete }) => {
   return (
     <>
-      {posts.map((post) => (
-        <div key={post.id} className="p-6 border-b">
-          <div className="mb-4 flex justify-between items-start">
-            <div>
-              <h2 className="font-bold mb-2 text-lg text-blue-500">
-                {post.title}
-              </h2>
-              <small className="text-gray-500 text-xs">
-                Posted on: {post.created_at}
-              </small>
-            </div>
+      <div>
+        <div className="mb-4 flex justify-between items-start">
+          <div>
+            <h2 className="font-bold mb-2 text-lg text-blue-500">
+              {post.title}
+            </h2>
+            <small className="text-gray-500 text-xs">
+              Posted on: {post.created_at}
+            </small>
+          </div>
+          <div>
+            <Link
+              className="mx-2 px-2 bg-green-500 text-white rounded-md"
+              title="Update"
+              state={post} // Send the posts to the Update page
+              to="/update"
+            >
+              Update
+            </Link>
+
             <button
               onClick={() => handleDelete(post.id)}
-              className="h-6 w-6 bg-red-500 text-white rounded-md"
+              className="mx-2 px-2 bg-red-500 text-white rounded-md"
             >
-              X
+              Delete
             </button>
           </div>
-          <p>{post.body}</p>
         </div>
-      ))}
+        <p>{post.body}</p>
+      </div>
     </>
   );
 };
