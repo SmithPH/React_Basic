@@ -1,7 +1,7 @@
-# React Basic
+# React CRUD asic
 
   
-- React {useState, useEffect, useNavigate. react-router-dom, Link, Outlet }, Tailwind, json-server
+- React {useState, useEffect, useNavigate, react-router-dom, Link, useLocation Outlet }, Tailwind, json-server
 
 
 
