@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, createContext } from "react";
 import PostItem from "../components/PostItem";
+import Success from "../components/Success";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -9,6 +10,9 @@ const Home = () => {
 
   // error
   const [error, setError] = useState(null);
+
+  // success
+  const [success, setSuccess] = useState(null);
 
   // get data from db
   // to run server
@@ -28,19 +32,32 @@ const Home = () => {
       });
   }, []); // use with , []  it will only call for 1 time at the start
 
-  const handleDelete = (id) => {
-    setPosts(posts.filter((posts) => posts.id !== id));
-
-    // delete data in db
-    fetch(`http://localhost:3000/posts/${id}`, {
-      method: "DELETE",
-    });
+  const handleDelete = async (id) => {
+    if (confirm("confirm delete?")) {
+      try {
+        // delete data in db
+        const del = await fetch(`http://localhost:3000/posts/${id}`, {
+          method: "DELETE",
+        });
+        setSuccess("Post is deleted");
+        setPosts(posts.filter((posts) => posts.id !== id));
+      } catch (error) {
+        setError(error.message);
+      }
+    }
   };
   return (
     <>
       {loading && <h1>Loading...</h1>}
-      {error && <h1>{error}</h1>}
-      <PostItem posts={posts} handleDelete={handleDelete} />
+
+      {success && <Success msg={success} />}
+      {error && <Alert msg={error} />}
+
+      {posts.map((post) => (
+        <div key={post.id} className="p-6 border-b">
+          <PostItem post={post} handleDelete={handleDelete} />
+        </div>
+      ))}
     </>
   );
 };
